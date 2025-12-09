@@ -1,0 +1,128 @@
+:root {
+    --bg:#0f1724;
+    --card:#0b1220;
+    --accent:#7dd3fc;
+    --muted:#94a3d8;
+    --glass:rgba(255,255,255,0.03);
+    --radius:12px;
+    --key-size:62px
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    background: linear-gradient(180deg,#071026 0%, #071726 100%);
+    color: #e6eef8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.calc-header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.calc-header h1 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--accent);
+}
+
+.display {
+    background: var(--glass);
+    border-radius: 10px;
+    padding: 12px;
+    min-height: 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.expression {
+    font-size: 0.95rem;
+    color: var(--muted);
+    text-align: right;
+    padding-right: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.result {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 6px;
+    word-break: break-all;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+
+.key {
+    height: var(--key-size);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    background: linear-gradient(180deg,rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+    color: inherit;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(2,6,23,0.5);
+    transition: transform .08s ease, box-shadow .08;
+}
+
+.key:active {
+    transform: translateY(2px);
+}
+
+.key-op {
+    font-weight: 600;
+    color: var(--accent);
+    background: linear-gradient(180deg,rgba(125,211,252,0.08), rgba(125,211,252,0.03));
+}
+
+.key-equals {
+    height: 64px;
+    grid-column: 1 / -1;
+    font-weight: 700;
+    color: #00151a;
+    background: linear-gradient(90deg,rgba(125,211,252,0.08), rgba(34,211,238,0.06));
+}
+
+@media (max-width: 420px) {
+    :root {
+        --key-size: 50px
+    }
+
+    .result {
+        font-size: 1.4rem;
+    }
+}
